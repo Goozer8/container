@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myfirst-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: my-container
+  template:
+    metadata:
+      labels:
+        app: my-container
+    spec:
+      containers:
+      - name: web-app
+        image: your-dockerhub-username/container:latest  # Replace with your username
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
